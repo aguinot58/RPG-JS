@@ -1,0 +1,42 @@
+/* CSS page mentions légales */
+.bg-body {
+    background-color: #0f0f0f;
+  }
+  #mentions,
+  #mentions2,
+  #mentions3,
+  #mentions4 {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    text-align: center;
+    color: white;
+    font-size: 1.1vw;
+  }
+  #mentions4 {
+    padding-bottom: 80px;
+  }
+  #mentions h1 {
+    font-size: 2.5vw;
+  }
+  #mentions p,
+  #mentions2 p,
+  #mentions3 p,
+  #mentions4 p {
+    font-size: 1.3vw;
+  }
+  #mentions a,
+  #mentions2 a,
+  #mentions3 a,
+  #mentions4 a {
+    text-decoration: none;
+    color: #ff6464;
+  }
+  #mentions a:visited,
+  #mentions2 a:visited,
+  #mentions3 a:visited,
+  #mentions4 a:visited {
+    text-decoration: none;
+    color: #ff6464;
+  }

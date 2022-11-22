@@ -1,0 +1,57 @@
+.fleches{
+    width: 15px;
+}
+
+.fleches:hover, th:hover{
+    cursor: pointer;
+}
+
+.btn-suppr, .donnee{
+    margin-left: 5px;
+}
+
+td img{
+    width: 50px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.affichage-modal{
+    width: 550px;
+}
+
+.modal-content{
+    display: "block";
+}
+
+#form-modal{
+    display: flex;
+    flex-direction: row;
+}
+
+.infos{
+    width: 40%;
+}
+
+.img{
+    width: 50%;
+}
+
+.img img{
+    width: 275px;
+}
+
+.bouton{
+    padding: 2px 5px;
+    width: 90px;
+}
