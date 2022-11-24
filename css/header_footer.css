@@ -4,112 +4,11 @@ body {
   padding: 0;
 }
 
-header {
-    width: 100%;
-    height: 8vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    position: sticky;
-    top: 0px;
-    transition: all 0.2s ease-in-out;
-    z-index: 50;
-    background-color: black;
-}
-
-header .container {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .container .barre-nav {
-    display: flex;
-    flex-direction: row;
-    align-content: space-around;
-    align-items: center;
-}
-
-header .container .barre-nav .lien-nav {
-    text-decoration: none;
-    font-family: 'montserrat-black';
-    color: white;
-    font-size: 2.25vmin;
-}
-
-header .container .barre-nav .lien-nav :visited {
-    color: white;
-}
-
-header .container .barre-nav .lien-nav :hover {
-    transform: scale(1.1);
-    color: #ff0000;
-}
-
-header .container .barre-nav .sep-nav {
-    margin-left: 2vw;
-    margin-right: 2vw;
-    color: white;
-}
-
-header .container .nom-site {
-    text-decoration: none;
-    font-family: 'montserrat-black';
-    font-size: 2.75vmin;
-    color: white;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-}
-
-header .container .nom-site :visited {
-    color: white;
-}
-
-header .container .nom-site:nth-child(1) p {
-    animation-name: wiggleWiggle;
-    animation-duration: 1.25s;
-    animation-direction: alternate;
-    animation-timing-function: steps(2, end);
-    animation-iteration-count: infinite;
-}
-
-header .container #R {
-    animation-delay: 0s;
-}
-
-header .container #P {
-    animation-delay: 0.1s;
-}
-
-header .container #G {
-    animation-delay: 0.15s;
-}
-
-header .container #TIRET {
-    animation-delay: 0.2s;
-}
-
-header .container #J {
-    animation-delay: 0.25s;
-}
-
-header .container #S {
-    animation-delay: 0.3s;
-}
-
-
-
+/* Footer */
 footer {
     bottom: 0;
     position: fixed;
-    height: 50px;
+    height: 40px;
     background-color: black;
     width: 100%;
     display: block;
@@ -120,9 +19,9 @@ footer .pied {
     position: relative;
     color: #ffffff;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     width: 50%;
-    line-height: 50px;
+    line-height: 40px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -137,12 +36,26 @@ footer .pied a:visited {
 }
 
 
-
-  /* Couleurs */
+/* Couleurs */
 .rouge {
     color: #ff6464;
 }
 
 .blanc {
     color: #ffffff;
+}
+
+
+/* Audio */
+.btn-audio{
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    position: absolute;
+    right: 25px;
+    top: 10px;
+}
+
+.btn-audio button{
+    margin-top : 10px;
 }

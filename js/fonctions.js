@@ -17,6 +17,10 @@ function stopTune() {
     myAudio.pause();
 };
 
-function navPersonnages() {
-    window.location.href="./pages/personnages.html";  
-  }
+function nav_Personnages() {
+    window.location.href="./pages/personnage.html";  
+};
+
+function nav_Accueil() {
+    window.location.href="./../index.html";  
+};

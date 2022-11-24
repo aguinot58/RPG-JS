@@ -1,17 +1,3 @@
-/* Animation en vague du nom du site dans le header */
-@keyframes wiggleWiggle {
-    20%,
-    100% {
-      transform: translate(0, 3px);
-    }
-    0% {
-      transform: translate(0, 0px);
-    }
-    10% {
-      transform: translate(0, 3px);
-    }
-}
-
 /* Animation de scroll du background de l'écran titre */
 @keyframes scroll{
   0% {background-position:0 0;}

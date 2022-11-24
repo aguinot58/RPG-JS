@@ -37,7 +37,7 @@ body::before {
   top: 50%;
   display: flex;
   flex-direction: column;
-  height: 26vmin;
+  height: 32vmin;
   justify-content: space-around;
   align-items: center;
 }
@@ -50,7 +50,7 @@ body::before {
 }
 
 #content .input{
-  width: 50%;
+  width: 60%;
   height: 60px;
   cursor:pointer;
   background-image: url(./../img/buttonNormal.png);
@@ -58,7 +58,7 @@ body::before {
   color: White;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #content .input:hover{
@@ -70,16 +70,6 @@ body::before {
 .scale-in-ver-center {
 	-webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s both;
 	        animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s both;
-}
-
-.btn-audio{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-  position: absolute;
-  right: 25px;
-  top: 10px;
 }
 
 

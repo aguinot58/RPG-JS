@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="./../img/icon.png">
+        <title>RPG-JS gestion des personnages</title>
+        <meta name="description" content="gestion personnages projet rpg javascript">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="./../css/header_footer.css">
+        <link rel="stylesheet" href="./../css/animations.css">
+        <link rel="stylesheet" href="./../css/fonts.css">
+        <link rel="stylesheet" href="./../css/personnages.css">
+    </head>
+
+    <body>
+
+        <div class="wrap">
+
+            <div class="btn-audio">
+                <audio id="audio" autoplay>
+                    <source src="./../musique/Inn.mp3" type="audio/mpeg">
+                </audio>
+                <button onClick="playTune()"><img src="./../img/soundOn.png"></button>
+                <button onClick="stopTune()"><img src="./../img/soundOff.png"></button>
+            </div>  
+
+            <section id="liste-perso" >
+
+                <div class="liste">
+                    <table id="maTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center text-nowrap">Nom <img class="fleches" src="./../img/up-and-down-arrows.png" alt="flèches de tri"></th>
+                                <th scope="col" class="text-center text-nowrap">Race <img class="fleches" src="./../img/up-and-down-arrows.png" alt="flèches de tri"></th>
+                                <th scope="col" class="text-center text-nowrap">Classe <img class="fleches" src="./../img/up-and-down-arrows.png" alt="flèches de tri"></th>
+                                <th scope="col" class="text-center text-nowrap">Niveau <img class="fleches" src="./../img/up-and-down-arrows.png" alt="flèches de tri"></th>
+                                <th scope="col" class="text-center text-nowrap"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="boutons">
+                    <button class="btn btn-success" onclick="affichage_NewPerso()">Nouveau</button>
+                    <button class="btn btn-warning" onclick="nav_Accueil()">Retour</button>
+                </div>
+
+                <Form class="form-ajout" id="formulaire">
+                    <div class="row mt-4 mb-3">
+                        <div class="col-4">
+                            <label for='nom' class="form-label">Nom</label>
+                            <input class="form-control" type='text' name='nom' id='nom' required>
+                        </div>
+                        <div class="col-4">
+                            <label for='race' class="form-label">Race</label>
+                            <select id="race" class="form-select" name="race" aria-label="Default select example" required>
+                                <option>Choix</option>
+                                <option value="Humain">Humain</option>
+                                <option value="Elf">Elf</option>
+                                <option value="Orc">Orc</option>
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <label for='classe' class="form-label">Classe</label>
+                            <select id="classe" class="form-select" name="classe" aria-label="Default select example" required>
+                                <option>Choix</option>
+                                <option value="Mage">Mage</option>
+                                <option value="Guerrier">Guerrier</option>
+                                <option value="Voleur">Voleur</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center mt-1 mb-1">
+                        <div class="col-2">
+                            <button id='btn-envoi' type="submit" class="btn btn-primary" onclick="new_perso(this.form)">Ajouter</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section id="affichage-perso">
+                <div class="conteneur-stats">
+                    <p id ="add_here"></p>
+                </div>
+            </section>
+
+        </div>
+
+        <footer>
+            <div class="pied"><p><a href="./../index.html" >RPG-JS</a> | Aymeric Guinot <span class="rouge">© 2022</span> | <a href="./mentions.html" >mentions <span class="rouge">légales</span></a></p></div>
+        </footer>
+
+        <script src="./../js/fonctions.js"></script>
+        <script src="./../js/personnages.js"></script>
+        <script src="./../js/tri_tableau.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
