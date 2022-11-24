@@ -1,3 +1,85 @@
+*, body {
+  margin: 0;
+  padding: 0;
+}
 
+body::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  bottom:0;
+  background-image: url(./../img/landscape.jpg);
+  background-size: 100% auto;
+  animation:scroll 10s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+#content{
+  z-index: 5;
+  position: relative;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 26vmin;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#content h1{
+  font-family: 'enchanted';
+  color: rgb(238, 100, 9);
+  font-size: 80px;
+  text-shadow: 1px 1px 2px black, 0 0 1em orange, 0 0 0.2em black;
+}
+
+#content .input{
+  width: 50%;
+  height: 60px;
+  cursor:pointer;
+  background-image: url(./../img/buttonNormal.png);
+  background-size: cover;
+  color: White;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content .input:hover{
+  background-image: url(./../img/buttonHighLight.png);
+  background-size: cover;
+  cursor:pointer;
+}
+
+.scale-in-ver-center {
+	-webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s both;
+	        animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 10s both;
+}
+
+.btn-audio{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  position: absolute;
+  right: 25px;
+  top: 10px;
+}
 
 

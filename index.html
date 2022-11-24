@@ -10,28 +10,34 @@
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/header_footer.css">
         <link rel="stylesheet" href="./css/animations.css">
+        <link rel="stylesheet" href="./css/fonts.css">
     </head>
 
     <body>
 
-        <header>
-            <div id="root" class="container">
-                <div class="site">
-                    <a class="nom-site" href="/"><p id="R">R</p><p id="P">P</p><p id="G">G</p><p id="TIRET">-</p><p id="J">J</p><p id="S">S</p></a>
-                </div>
-                <nav class="barre-nav">
-                    <a class="lien-nav" href="/"><p>ACCUEIL</p></a>
-                    <p class="sep-nav">|</p>
-                    <a class="lien-nav" href="/pages/personnages.html"><p>Personnages</p></a>
-                </nav>
-            </div>
-        </header>
+        <div class="wrap">
 
+            <div class="btn-audio">
+                <audio id="audio" autoplay>
+                    <source src="./musique/8_Bit_Nostalgia.mp3" type="audio/mpeg">
+                </audio>
+                <button onClick="playTune()"><img src="./img/soundOn.png"></button>
+                <button onClick="stopTune()"><img src="./img/soundOff.png"></button>
+            </div>  
 
+            <section id="content" class="scale-in-ver-center">
+                <h1>RPG Javascript</h1>
+                <div class="input">Commencer</div>
+                <div class="input" onClick="navPersonnages()">Personnages</div>
+            </section>
 
+        </div>
+        
         <footer>
             <div class="pied"><p>RPG-JS | Aymeric Guinot <span class="rouge">© 2022</span> | <a href="./pages/mentions.html" >mentions <span class="rouge">légales</span></a></p></div>
         </footer>
+
+        <script src="./js/fonctions.js"></script>
 
     </body>
 

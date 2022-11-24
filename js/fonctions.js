@@ -7,3 +7,16 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min +1)) + min;
 };
 
+function playTune() {
+    var myAudio = document.getElementById("audio");
+    myAudio.play();
+};
+
+function stopTune() {
+    var myAudio = document.getElementById("audio");
+    myAudio.pause();
+};
+
+function navPersonnages() {
+    window.location.href="./pages/personnages.html";  
+  }

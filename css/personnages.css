@@ -1,3 +1,8 @@
+*, body {
+  margin: 0;
+  padding: 0;
+}
+
 .fleches{
     width: 15px;
 }
@@ -19,7 +24,7 @@ td img{
     position: fixed; 
     z-index: 1;
     left: 0;
-    top: 0;
+    top: 45px;
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0);
@@ -48,10 +53,14 @@ td img{
 }
 
 .img img{
-    width: 275px;
+    width: 255px;
 }
 
 .bouton{
     padding: 2px 5px;
     width: 90px;
+}
+
+header .container {
+    align-items: flex-end;
 }
