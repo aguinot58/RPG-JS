@@ -48,8 +48,12 @@ th, td, .btn, .conteneur-stats .reponse{
     font-size: 24px;
 }
 
-.btn-suppr, .donnee{
+.btn-voir, .btn-suppr, .donnee{
     margin-left: 5px;
+}
+
+.btn-suppr{
+    background-color: rgba(215, 80, 80, 0.5);
 }
 
 .fleches{

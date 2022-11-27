@@ -1,0 +1,91 @@
+*, body {
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+      background-image: url(./../img/foret.png);
+      background-size: cover;
+}
+
+.wrap {
+    height: 95vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#affichage-perso {
+    width: 40%;
+    height: 85%;
+    background-image: url(./../img/torn.png);
+    background-size: 95%;
+    background-repeat: no-repeat;
+}
+
+.conteneur-stats{
+    padding: 100px 100px 50px 95px;
+}
+
+.conteneur-stats .etiquette{
+    color: black;
+    font-size: 20px;
+}
+
+.conteneur-stats .reponse{
+    color: black;
+    font-size: 26px;
+    margin-left: 10px;
+    font-family: 'enchanted';
+}
+
+#vs{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    justify-content: space-between;
+    align-items: center;
+    height: 80%;
+}
+
+#vs .vs{
+    font-family: 'enchanted';
+    font-size: 225px;
+    color: red;
+    text-align: center;
+}
+
+#vs button{
+    width: 50%;
+}
+
+#ennemy{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0px 20px 50px;
+    width: 40%;
+}
+
+.image img{
+    width: 400px;
+}
+
+#conteneur-results{
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid gold;
+    height: 150px;
+    width: 100%;
+    color: white;
+    font-size: 18px;
+}
+
+#results{
+    color: white;
+    font-size: 18px;
+}
+
+
