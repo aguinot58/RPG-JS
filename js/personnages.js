@@ -9,99 +9,6 @@
   */
 window.addEventListener("load", chargementListePerso(), false)
 
-
-/**
- * @constructor
- * @this {Personnage}
- * @param {number} id 
- * @param {string} nom 
- * @param {string} race 
- * @param {string} classe 
- * @param {number} lvl 
- * @param {number} pv 
- * @param {number} xp 
- * @param {string} technique 
- */
-function Personnage(id, nom, race, classe, lvl, pv, xp, technique){
-
-    this.id = id;
-    this.nom = nom;
-    this.race = race;
-    this.classe = classe;
-    this.lvl = lvl;
-    this.pv = pv;
-    this.xp = xp;
-    this.technique = technique;
-
-};
-
-
-/**
- * Créer une nouvelle instance de Guerrier qui hérite de Personnage
- * @constructor
- * @this {Guerrier}
- * @param {number} id 
- * @param {string} nom 
- * @param {string} race 
- * @param {string} classe 
- * @param {number} lvl 
- * @param {number} pv 
- * @param {number} xp 
- * @param {string} technique 
- * @param {number} rage 
- */
-function Guerrier(id, nom, race, classe, lvl, pv, xp, technique, rage){
-
-    Personnage.call(this, id, nom, race, classe, lvl, pv, xp, technique);
-    this.rage = rage;
-
-};
-
-
-/**
- * Créer une nouvelle instance de Mage qui hérite de Personnage
- * @constructor
- * @this {Mage}
- * @param {number} id 
- * @param {string} nom 
- * @param {string} race 
- * @param {string} classe 
- * @param {number} lvl 
- * @param {number} pv 
- * @param {number} xp 
- * @param {string} technique 
- * @param {number} mana 
- */
-function Mage(id, nom, race, classe, lvl, pv, xp, technique, mana){
-
-    Personnage.call(this, id, nom, race, classe, lvl, pv, xp, technique);
-    this.mana = mana;
-
-};
-
-
-/**
- * Créer une nouvelle instance de Voleur qui hérite de Personnage
- * @constructor
- * @this {Voleur}
- * @param {number} id 
- * @param {string} nom 
- * @param {string} race 
- * @param {string} classe 
- * @param {number} lvl 
- * @param {number} pv 
- * @param {number} xp 
- * @param {string} technique 
- * @param {number} energie 
- */
-function Voleur(id, nom, race, classe, lvl, pv, xp, technique, energie){
-
-    Personnage.call(this, id, nom, race, classe, lvl, pv, xp, technique);
-    this.energie = energie;
-
-};
-
-
 /**
  * Créer une nouvelle instance de personnage en fonction des données saisies
  * dans le formulaire.
@@ -131,24 +38,16 @@ function new_perso(form){
     let nom = form.nom.value;
     let race = form.race.value;
     let classe = form.classe.value;
-    let xp = 0;
-    let lvl = 1;
 
     /**
      * On créé une nouvelle instance en fonction de la classe choisie.
      */
     if (classe == "Guerrier") {
-        let pv = getRandomIntInclusive(125, 175);
-        let rage = 100;
-        personnage = new Guerrier(index, nom, race, classe, lvl, pv, xp, "berserk", rage);
+        personnage = new Guerrier(index, nom, race);
     } else if (classe == "Mage") {
-        let pv = getRandomIntInclusive(80, 100);
-        let mana = getRandomIntInclusive(125, 175);
-        personnage = new Mage(index, nom, race, classe, lvl, pv, xp, "boule de feu", mana);
+        personnage = new Mage(index, nom, race);
     } else if (classe == "Voleur") {
-        let pv = getRandomIntInclusive(100, 125);
-        let energie = 100;
-        personnage = new Voleur(index, nom, race, classe, lvl, pv, xp, "surinage", energie);
+        personnage = new Voleur(index, nom, race);
     }
         
     let strPerso = JSON.stringify(personnage);
@@ -158,7 +57,7 @@ function new_perso(form){
 
 
 /**
- * Fonction de suppressio nde personnage
+ * Fonction de suppression de personnage
  * @param {*} event évènement appelant (bouton supprimer sur la ligne du personnage concerné).
  */
 function supprimer_perso(event) {
@@ -167,6 +66,10 @@ function supprimer_perso(event) {
     var deleteLine = document.getElementById(trid);
     deleteLine.remove();
     localStorage.removeItem(trid);
+
+    if (localStorage.length == 0) {
+        setCookie("idPerso","","Thu, 01 Jan 1970 00:00:00 GMT");
+    }
 
 };
 
@@ -241,7 +144,7 @@ function affichage_NewPerso(){
 function afficherPerso(event){
 
     let myId = $(event.target).closest('tr').attr('id');
-    let contenu = "";
+    let stats = "";
 
     if (localStorage.length > 0) {
 
@@ -254,28 +157,56 @@ function afficherPerso(event){
                 let strPersonnage = localStorage.getItem(index);
                 let personnage = JSON.parse(strPersonnage);
 
-                if (personnage.classe == "Guerrier") {
-                    type_energie = "Rage";
-                    energie = personnage.rage;
-                } else if (personnage.classe == "Mage") {
-                    type_energie = "Mana";
-                    energie = personnage.mana;
-                } else if (personnage.classe == "Voleur") {
-                    type_energie = "Energie";
-                    energie = personnage.energie;
-                };
-
-                contenu = '<div id="contenu"><div class="row mt-4 mb-3"><div class="col"><label class="etiquette">Nom : </label><label class="reponse">'+
-                            personnage.nom+'</label></div></div><div class="row mt-4 mb-3"><div class="col"><label class="etiquette">Race : </label>'+
-                            '<label class="reponse">'+personnage.race+'</label></div><div class="col"><label class="etiquette">Classe : </label>'+
-                            '<label class="reponse">'+personnage.classe+'</label></div></div><div class="row mt-4 mb-3"><div class="col">'+
-                            '<label class="etiquette">HP : </label><label class="reponse">'+personnage.pv+'</label></div><div class="col">'+
-                            '<label class="etiquette">'+type_energie+' : </label><label class="reponse">'+energie+'</label>'+
-                            '</div></div><div class="row mt-4 mb-3"><div class="col"><label class="etiquette">Niveau : </label><label class="reponse">'+
-                            personnage.lvl+'</label></div><div class="col"><label class="etiquette">Xp : </label><label class="reponse">'+personnage.xp+'</label>'+
-                            '</div></div><div class="row mt-4 mb-3"><div class="col"><label class="etiquette">Technique : </label><label class="reponse">'+
-                            personnage.technique+'</label></div></div></div>';
-
+                stats =   '<table class="stats" id="contenu">'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Nom</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.nom+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Race</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.race+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Classe</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.classe+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Points de vie</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.hp+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">'+personnage.typeEnergie+'</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.energie+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Attaque</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.atk+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Defense</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.def+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Intelligence</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.int+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Vitesse</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.speed+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Technique</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.nomtechnique+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Niveau</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.lvl+'</td>'+
+                                '</tr>'+
+                                '<tr>'+
+                                    '<th scope="row" class="text-center text-nowrap">Experience</th>'+
+                                    '<td class="text-center text-nowrap reponse">'+personnage.xp+'</td>'+
+                                '</tr>'+
+                        '</table>';
                 break;
 
             } 
@@ -284,7 +215,7 @@ function afficherPerso(event){
 
         let deleteform = document.getElementById("contenu");
         if (deleteform != null){deleteform.remove();}
-        document.getElementById('add_here').insertAdjacentHTML("afterend", contenu);
+        document.getElementById('add_here').insertAdjacentHTML("afterend", stats);
 
     }
 

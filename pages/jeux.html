@@ -34,7 +34,14 @@
     
             <section id="vs">
                 <p class="vs">VS</p>
-                <button onClick="combat()">Combattre</button>
+                <div class="menu-combat">
+                    <div id="conteneur-boutons-1">
+                        <button onClick="combat()">Combattre</button><button onClick="fuite()">Fuir</button>
+                    </div>
+                    <div id="conteneur-boutons-2">
+                        <button onClick="attaque()">Attaquer</button><button onClick="technique()">Technique</button><button onClick="defendre()">Defendre</button><button onClick="fuite2()">Fuir</button>
+                    </div>
+                </div>
                 <div id="conteneur-results">
                     <p id="results"></p>
                 </div>
@@ -42,16 +49,18 @@
 
             <section id="ennemy">
                 <div class="image">
-                    <img src="./../img/skeleton.png" alt="image d'un guerrier squelette" id="image-ennemy">
+                    <img src="./../img/Skel2.png" alt="image d'un guerrier squelette" id="image-ennemy">
                 </div>
             </section>
 
         </div>
 
         <footer>
-            <div class="pied"><p><a href="./../index.html" >RPG-JS</a> | Aymeric Guinot <span class="rouge">© 2022</span> | <a href="./mentions.html" >mentions <span class="rouge">légales</span></a></p></div>
+            <div class="pied"><p><a href="./../index.html" >monRPG-JavaScript</a> | Aymeric Guinot <span class="rouge">© 2022</span> | <a href="./mentions.html" >mentions <span class="rouge">légales</span></a></p></div>
         </footer>
 
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script src="./../js/class.js"></script>
         <script src="./../js/fonctions.js"></script>
         <script src="./../js/personnages.js"></script>
         <script src="./../js/jeu.js"></script>

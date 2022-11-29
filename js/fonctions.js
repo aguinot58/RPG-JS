@@ -34,7 +34,7 @@ function stopTune() {
 /**
  * Fonction navigation vers la page "personnage.html".
  */
-function nav_Personnages() {
+function navigation_Personnages() {
     window.location.href="./pages/personnage.html";  
 };
 
@@ -80,7 +80,7 @@ function getCookie(cname) {
 };
 
 /**
- * Vérifie si le cookie de choxi de personnage existe.
+ * Vérifie si le cookie de choix de personnage existe.
  */
 function verifCookieChoixPerso() {
     let idPerso = getCookie("idPerso");
@@ -91,12 +91,38 @@ function verifCookieChoixPerso() {
     };
 };
 
+
+function ajoutTexte(contenu) {
+
+    let nbLigne = getCookie("nbLigne");
+
+    if (nbLigne == "nan") {
+        nbLigne = 0;
+    }
+
+    if (parseInt(nbLigne,10) >= 5){
+        console.log("test2");
+        console.log(nbLigne);
+        document.getElementById("results").innerHTML="";
+        nbLigne = 0;
+    };
+
+    console.log("test1");
+    console.log(nbLigne);
+
+    document.getElementById("results").insertAdjacentHTML("beforeend", contenu);
+    nbLigne = parseInt(nbLigne,10) + 1;
+    setCookie("nbLigne",nbLigne,1)
+
+};
+
+
 /**
  * Fonction non finalisée de gestion d'un combat entre un ennemi codé un dur
  * et le personnage dont on a récupéré les statistiques à partir de 
  * l'identifiant trouvé dans le cookie.
- */
-function combat(){
+ *
+function combatre(){
 
     let personnageUpdate;
     let tabLvl = [100,250,600,1000,1500];
@@ -120,7 +146,7 @@ function combat(){
     do {
         /**
          * Gestion des dégâts subis par l'ennemi.
-         */
+         *
         let degatsfournis = (getRandomIntInclusive(15, 35) - ennemyDEF);
         ennemyHP = ennemyHP - degatsfournis;
         divImage.style.animation = 'shake 1s';
@@ -133,7 +159,7 @@ function combat(){
         
         /**
          * Gestion de la mort de l'ennemi.
-         */
+         *
         if (ennemyHP <= 0){
             contenu = "L'ennemi est mort...<br>";
             document.getElementById("results").insertAdjacentHTML("beforeend", contenu);
@@ -147,7 +173,7 @@ function combat(){
 
             /**
              * Gestion de la montée en niveau du personnage.
-             */
+             *
             if (personnage.xp >= tabLvl[personnage.lvl-1]){
                 personnage.lvl = personnage.lvl +1;
                 personnage.pv = pvMaxInitiaux + getRandomIntInclusive(15, 35);
@@ -159,7 +185,7 @@ function combat(){
         
         /**
          * Gestion des dégâts subis par le personnage.
-         */
+         *
         let degatssubis = (getRandomIntInclusive(0, 5) + ennemyATK);
         personnage.pv = personnage.pv - degatssubis;
         contenu = "Vous avez subi "+degatssubis+"<br>";
@@ -171,7 +197,7 @@ function combat(){
         
         /**
          * Gestion de la mort du personnage.
-         */
+         *
         if (personnage.pv <= 0) {
             contenu = "Vous êtes mort...<br>";
             document.getElementById("results").insertAdjacentHTML("beforeend", contenu);
@@ -186,7 +212,7 @@ function combat(){
 
     /**
      * On remet à jour les données du personnage dans le localstorage
-     */
+     *
     if (personnage.classe == "Guerrier") {
         personnageUpdate = new Guerrier(id, personnage.nom, personnage.race, personnage.classe, personnage.lvl, personnage.pv, personnage.xp, "berserk", personnage.rage);
     } else if (personnage.classe == "Mage") {
@@ -200,4 +226,6 @@ function combat(){
 
     window.location.href="jeux.html";
 
-};
+};*/
+
+
